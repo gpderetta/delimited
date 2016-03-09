@@ -29,7 +29,7 @@ void __attribute__((noinline)) do_measure(F f)
 }
 template<class F>
 void measure(F&& f, const char *msg, std::size_t len) {
-    LOG("test begin: " << msg);
+    //LOG("test begin: " << msg);
     using ns = cr::duration<double, std::nano> ;
     auto tbegin = std::chrono::high_resolution_clock::now();
     auto begin = rdtsc();
@@ -40,11 +40,11 @@ void measure(F&& f, const char *msg, std::size_t len) {
     double delta = end-begin;
     auto   tdelta = cr::duration_cast<ns>(tend-tbegin).count();
     LOG ("test end: " << msg 
-                  << "\n\t clock/iter: " << (delta/len)
-                  << "\n\t ns/iter: " << tdelta/len
-                  << "\n\t iterations: "<< len
-                  << "\n\t clocks total: " << delta
-                  << "\n\t ns total: " << tdelta
+                      << "\t clock/iter: " << (delta/len)
+                      << "\t ns/iter: " << tdelta/len
+        //             << "\t iterations: "<< len
+        //<< "\n\t clocks total: " << delta
+        //            << "\n\t ns total: " << tdelta
         );
 }
 
