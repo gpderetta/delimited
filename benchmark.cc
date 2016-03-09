@@ -9,8 +9,10 @@ using namespace gpd;
 
 int main()
 {
-        constexpr std::size_t len = 1000000;
+    LOG("Starting benchmark");
+    constexpr std::size_t len = 1000000;
     {
+        LOG("Null performance test");
         measure([&] {
                 for (int i = 0; i < (int)len; ++i)
                     asm volatile ("":::"memory");

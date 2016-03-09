@@ -13,8 +13,14 @@ delimited: delimited_test.cc delimited.hpp  test_utils.hpp
 benchmark: benchmark.cc delimited.hpp  test_utils.hpp
 	$(CXX)  $(CXXFLAGS) benchmark.cc -o benchmark
 
+
+
 .PHONY:
-test: run-delimited run-benchmark
+test: cpuinfo run-delimited run-benchmark
+
+.PHONY:
+cpuinfo:
+	cat /proc/cpuinfo
 
 .PHONY:
 run-delimited: delimited
