@@ -1,4 +1,4 @@
-CXX=g++
+CXX=g++-5
 CXXFLAGS=-std=c++14 -fomit-frame-pointer	\
 		-save-temps							\
 		-fnon-call-exceptions				\
